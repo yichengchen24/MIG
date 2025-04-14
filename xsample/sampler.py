@@ -16,10 +16,6 @@ class SamplerType(Enum):
 
 class Sampler(metaclass=ABCMeta):
     """Abstract base class for samplers."""
-        
-    @abstractmethod
-    def score(self, dataset: Dataset) -> dict:
-        """Score dataset."""
     
     @abstractmethod
     def sample(self, pool: Dataset, num_sample: int, batch_size: int = 0) -> Iterator[DataPoint]:
