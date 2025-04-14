@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools >= 62.6, < 64.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xsample"
+authors = [
+  {name = "yichengchen24",email = "yichengchen2023@gmail.com"},
+  {name = "Yining Li", email = "liyining0712@gmail.com"}
+]
+maintainers = [
+  {name = "yichengchen24",email = "yichengchen2023@gmail.com"},
+  {name = "Yining Li", email = "liyining0712@gmail.com"}
+]
+requires-python = ">=3.9"
+dynamic = ["version", "readme"]
+dependencies = [
+  "rich",
+  "typer",
+  "python-dateutil",
+  "jsonlines",
+  "typing_extensions",
+  "pydantic",
+  "jaal",
+  "sentence_transformers",
+]
+
+[project.scripts]
+xsample = "xsample.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["xsample*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "xsample.version.__version__"}
+readme = {file = "README.md", content-type = "text/markdown"}
+
+[tool.yapf]
+based_on_style = "pep8"
+blank_line_before_nested_class_or_def = true
+split_before_expression_after_opening_paren = true
+split_penalty_import_names = 0
+split_penalty_after_opening_bracket = 800
+column_limit = 99
+
+[tool.isort]
+line_length = 99
+multi_line_output = 0
+known_first_party = "xsample"
+no_lines_before = ["STDLIB", "LOCALFOLDER"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]  # codespell:ignore
+
+[tool.pyright]
+reportRedeclaration = "none"
