@@ -14,7 +14,7 @@ MIG is an automatic data selection method for instruction tuning. It proposes an
 
 ### 🔦 Highlights
 <img src="./assets/teaser.png" alt="x" width="400">
-\
+
 Comparison with different data selection methods:
 * Sample 50K from the Tulu3 pool(939K).
 * Training on Llama3.1-8B.
@@ -22,7 +22,7 @@ Comparison with different data selection methods:
 
 ### 📈 Full Results
 
-| Method  | Data Size | ARC          | BBH          | GSM          | HE           | MMLU         | IFEval       | Avg$_\text{obj}$ | AE           | MT          | Wild          | Avg$_\text{sub}$ | Avg          |
+| Method  | Data Size | ARC          | BBH          | GSM          | HE           | MMLU         | IFEval       | $Avg_\text{obj}$ | AE           | MT          | Wild          | $Avg_\text{sub}$ | Avg          |
 | ------- | --------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ---------------- | ------------ | ----------- | ------------- | ---------------- | ------------ |
 | Pool    | 939K      | 69.15        | 63.88        | 83.40        | 63.41        | 65.77        | 67.10        | 68.79            | 8.94         | 6.86        | -24.66        | 38.40            | 53.59        |
 | Random  | 50K       | 74.24        | 64.80        | 70.36        | 51.22        | 63.86        | 61.00        | 64.25            | 8.57         | <u>7.06</u> | -22.15        | 39.36            | 51.81        |
@@ -34,7 +34,7 @@ Comparison with different data selection methods:
 | QDIT    | 50K       | <u>79.66</u> | 65.42        | 70.74        | <u>53.05</u> | <u>65.06</u> | 57.30        | 65.21            | **15.78**    | 6.76        | -20.56        | <u>41.03</u>     | <u>53.12</u> |
 | MIG     | 50K       | **80.00**    | <u>66.39</u> | <u>72.02</u> | **57.93**    | 64.44        | <u>65.06</u> | **67.64**        | <u>14.66</u> | **7.32**    | **-17.77**    | **42.99**        | **55.32**    |
 
-HE denotes HumanEval, AE denotes AlpacaEvalv2, MT denotes MTBench, and Wild denotes WildBench. Avg$_\text{obj}$ and Avg$_\text{sub}$ represent the average of the normalized knowledge-based and human-preference benchmark scores, respectively. Avg is the mean of Avg$_\text{obj}$ and Avg$_\text{sub}$.
+HE denotes HumanEval, AE denotes AlpacaEvalv2, MT denotes MTBench, and Wild denotes WildBench. $Avg_\text{obj}$ and $Avg_\text{sub}$ represent the average of the normalized knowledge-based and human-preference benchmark scores, respectively. Avg is the mean of $Avg_\text{obj}$ and $Avg_\text{sub}$.
 
 ## 🏃‍♂️ How to start?
 
@@ -60,10 +60,10 @@ Please download embedding model under \$embedding_model_path\$, we recommand [e5
 
 ### Data Sampling
 ```bash
-xsample sample $src$ --out $save_path$ --num-sample $num_sample$ --valid-tag-path ./configs/valid_tag_path.json --label-graph-type sim --embedding-model $embedding_model_path$ --sampler-type mig --batch-size 32768
+xsample sample <src> --out <save_path> --num-sample <num_sample> --valid-tag-path ./configs/valid_tag_path.json --label-graph-type sim --embedding-model <embedding_model_path> --sampler-type mig --batch-size 32768
 ```
 
-\$src\$ should be the data pool path in format of jsonl. Please refer to `data/example.jsonl` for an example. We will soon open-source our processed data pools([Tulu3](https://huggingface.co/datasets/allenai/tulu-3-sft-mixture), [Openhermes2.5](https://huggingface.co/datasets/teknium/OpenHermes-2.5), [$X_{sota}$](https://huggingface.co/datasets/AndrewZeng/deita_sota_pool)) with annotated [#InsTag](https://github.com/OFA-Sys/InsTag) labels and [Deita](https://github.com/hkust-nlp/deita) score.
+<src> should be the data pool path in format of jsonl. Please refer to `data/example.jsonl` for an example. We will soon open-source our processed data pools([Tulu3](https://huggingface.co/datasets/allenai/tulu-3-sft-mixture), [Openhermes2.5](https://huggingface.co/datasets/teknium/OpenHermes-2.5), [$X_{sota}$](https://huggingface.co/datasets/AndrewZeng/deita_sota_pool)) with annotated [#InsTag](https://github.com/OFA-Sys/InsTag) labels and [Deita](https://github.com/hkust-nlp/deita) score.
 
 ### SFT Training
 We use [LLama-Factory](https://github.com/hiyouga/LLaMA-Factory) to fine-tuning base models.
@@ -72,7 +72,7 @@ We use [LLama-Factory](https://github.com/hiyouga/LLaMA-Factory) to fine-tuning 
 
 ```json
 "tulu3_pool_mig_50k": {
-    "file_name": $out$,
+    "file_name": <out>,
     "formatting": "sharegpt",
     "columns": {
       "messages": "dialogs"
