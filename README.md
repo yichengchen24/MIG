@@ -56,7 +56,7 @@ pip install -e .
 ```
 * Embedding Model
 
-Please download embedding model under \$embedding_model_path\$, we recommand [e5-mistral-7b-instruct](https://huggingface.co/intfloat/e5-mistral-7b-instruct) used in our paper.
+Please download embedding model under <embedding_model_path>, we recommand [e5-mistral-7b-instruct](https://huggingface.co/intfloat/e5-mistral-7b-instruct) used in our paper.
 
 ### Data Sampling
 ```bash
