@@ -15,7 +15,7 @@ MIG is an automatic data selection method for instruction tuning. It proposes an
 ## Performance
 
 ### 🔦 Highlights
-<img src="./assets/teaser.png" alt="x" width="400">
+<img src="./assets/teaser-v6.png" alt="x" width="400">
 
 Comparison with different data selection methods:
 * Sample 50K from the Tulu3 pool(939K).
@@ -37,6 +37,8 @@ Comparison with different data selection methods:
 | MIG     | 50K       | **80.00**    | <u>66.39</u> | <u>72.02</u> | **57.93**    | 64.44        | <u>65.06</u> | **67.64**        | <u>14.66</u> | **7.32**    | **-17.77**    | **42.99**        | **55.32**    |
 
 HE denotes HumanEval, AE denotes AlpacaEvalv2, MT denotes MTBench, and Wild denotes WildBench. $Avg_\text{obj}$ and $Avg_\text{sub}$ represent the average of the normalized knowledge-based and human-preference benchmark scores, respectively. Avg is the mean of $Avg_\text{obj}$ and $Avg_\text{sub}$.
+
+Please refer to our paper for more results on different data pools(Openhermes2.5, Deita-Sota-Pool) and different base LLMs(Qwen2.5-7B, Mistral-7B-v0.3).
 
 ## 🏃‍♂️ How to start?
 
