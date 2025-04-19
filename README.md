@@ -1,4 +1,6 @@
-# MIG
+# MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space
+
+🤗[HF Models](https://huggingface.co/collections/xsample/mig-models-6801ec964bab5e098a676f19) 🤗[HF Datasets](https://huggingface.co/collections/xsample/mig-datasets-6800b4d225243877293eff3b) 📄[Paper]() 🚀[Project](https://yichengchen24.github.io/projects/mig/)
 
 Welcome to MIG (**M**aximize the **I**nformation **G**ain) Project!
 
