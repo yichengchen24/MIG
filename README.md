@@ -45,8 +45,8 @@ Please refer to our paper for more results on different data pools(Openhermes2.5
 ### Installation
 * Create an environment
 ```shell
-conda create -n xsample python=3.10
-conda activate xsample
+conda create -n mig python=3.10
+conda activate mig
 ```
 * Install pytorch (>2.0)
 ```shell
@@ -64,7 +64,7 @@ Please download the embedding model under <embedding_model_path>. We recommend [
 
 ### Data Sampling
 ```bash
-xsample sample <src> --out <save_path> --num-sample <num_sample> --valid-tag-path ./configs/valid_tag_path.json --label-graph-type sim --embedding-model <embedding_model_path> --sampler-type mig --batch-size 32768
+mig sample <src> --out <save_path> --num-sample <num_sample> --valid-tag-path ./configs/valid_tag_path.json --label-graph-type sim --embedding-model <embedding_model_path> --sampler-type mig --batch-size 32768
 ```
 
 <src> should be the data pool path in the format of jsonl. Please refer to `data/example.jsonl` for an example. We have open-sourced our processed data pools([Tulu3](https://huggingface.co/datasets/xsample/tulu-3-pool-annotated), [Openhermes2.5](https://huggingface.co/datasets/xsample/openhermes-2.5-pool-annotated), [$X_{sota}$](https://huggingface.co/datasets/xsample/deita-sota-pool-annotated)) with annotated [#InsTag](https://github.com/OFA-Sys/InsTag) labels and [Deita](https://github.com/hkust-nlp/deita) score.

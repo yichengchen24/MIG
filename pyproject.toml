@@ -3,7 +3,7 @@ requires = ["setuptools >= 62.6, < 64.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "xsample"
+name = "mig"
 authors = [
   {name = "yichengchen24",email = "yichengchen2023@gmail.com"},
   {name = "Yining Li", email = "liyining0712@gmail.com"}
@@ -26,14 +26,14 @@ dependencies = [
 ]
 
 [project.scripts]
-xsample = "xsample.cli:cli"
+mig = "mig.cli:cli"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["xsample*"]
+include = ["mig*"]
 
 [tool.setuptools.dynamic]
-version = {attr = "xsample.version.__version__"}
+version = {attr = "mig.version.__version__"}
 readme = {file = "README.md", content-type = "text/markdown"}
 
 [tool.yapf]
@@ -47,7 +47,7 @@ column_limit = 99
 [tool.isort]
 line_length = 99
 multi_line_output = 0
-known_first_party = "xsample"
+known_first_party = "mig"
 no_lines_before = ["STDLIB", "LOCALFOLDER"]
 sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]  # codespell:ignore
 
