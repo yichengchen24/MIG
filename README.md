@@ -1,6 +1,6 @@
 # MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space
 
-🤗[HF Models](https://huggingface.co/collections/xsample/mig-models-6801ec964bab5e098a676f19) 🤗[HF Datasets](https://huggingface.co/collections/xsample/mig-datasets-6800b4d225243877293eff3b) 📄[Paper]() 🚀[Project](https://yichengchen24.github.io/projects/mig/)
+🤗[HF Models](https://huggingface.co/collections/xsample/mig-models-6801ec964bab5e098a676f19) 🤗[HF Datasets](https://huggingface.co/collections/xsample/mig-datasets-6800b4d225243877293eff3b) 📄[Paper](https://arxiv.org/abs/2504.13835) 🚀[Project](https://yichengchen24.github.io/projects/mig/)
 
 Welcome to MIG (**M**aximize the **I**nformation **G**ain) Project!
 
@@ -10,7 +10,7 @@ We will continue to update, please stay tuned!
 MIG is an automatic data selection method for instruction tuning. It proposes an information-based dataset measurement that comprehensively evaluates data quality and diversity.
 
 ## 🔥 News
-* 📄 [04/2025] MIG paper [MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space]() is released!
+* 📄 [04/2025] MIG paper [MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space](https://arxiv.org/abs/2504.13835) is released!
 
 ## Performance
 
@@ -127,3 +127,12 @@ We will continue to update including:
 
 ## Citation
 If you find the content of this project helpful, please cite our paper as follows:
+
+```
+@article{chen2025mig,
+  title={MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space},
+  author={Chen, Yicheng and Li, Yining and Hu, Kai and Ma, Zerun and Ye, Haochen and Chen, Kai},
+  journal={arXiv preprint arXiv:2504.13835},
+  year={2025}
+}
+```
