@@ -4,7 +4,7 @@
 
 Welcome to MIG (**M**aximize the **I**nformation **G**ain) Project!
 
-We will continue to update, please stay tuned!
+We will continue to update. Please stay tuned!
 
 ## What is MIG?
 MIG is an automatic data selection method for instruction tuning. It proposes an information-based dataset measurement that comprehensively evaluates data quality and diversity.
@@ -54,23 +54,23 @@ conda install pytorch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 pytorch-cuda=
 ```
 * Install
 ```shell
-git clone https://github.com/yichengchen24/xsample.git
-cd xsample
+git clone https://github.com/yichengchen24/MIG.git
+cd MIG
 pip install -e .
 ```
 * Embedding Model
 
-Please download embedding model under <embedding_model_path>, we recommand [e5-mistral-7b-instruct](https://huggingface.co/intfloat/e5-mistral-7b-instruct) used in our paper.
+Please download the embedding model under <embedding_model_path>. We recommend [e5-mistral-7b-instruct](https://huggingface.co/intfloat/e5-mistral-7b-instruct) used in our paper.
 
 ### Data Sampling
 ```bash
 xsample sample <src> --out <save_path> --num-sample <num_sample> --valid-tag-path ./configs/valid_tag_path.json --label-graph-type sim --embedding-model <embedding_model_path> --sampler-type mig --batch-size 32768
 ```
 
-<src> should be the data pool path in format of jsonl. Please refer to `data/example.jsonl` for an example. We have open-sourced our processed data pools([Tulu3](https://huggingface.co/datasets/xsample/tulu-3-pool-annotated), [Openhermes2.5](https://huggingface.co/datasets/xsample/openhermes-2.5-pool-annotated), [$X_{sota}$](https://huggingface.co/datasets/xsample/deita-sota-pool-annotated)) with annotated [#InsTag](https://github.com/OFA-Sys/InsTag) labels and [Deita](https://github.com/hkust-nlp/deita) score.
+<src> should be the data pool path in the format of jsonl. Please refer to `data/example.jsonl` for an example. We have open-sourced our processed data pools([Tulu3](https://huggingface.co/datasets/xsample/tulu-3-pool-annotated), [Openhermes2.5](https://huggingface.co/datasets/xsample/openhermes-2.5-pool-annotated), [$X_{sota}$](https://huggingface.co/datasets/xsample/deita-sota-pool-annotated)) with annotated [#InsTag](https://github.com/OFA-Sys/InsTag) labels and [Deita](https://github.com/hkust-nlp/deita) score.
 
 ### SFT Training
-We use [LLama-Factory](https://github.com/hiyouga/LLaMA-Factory) to fine-tuning base models.
+We use [LLama-Factory](https://github.com/hiyouga/LLaMA-Factory) to fine-tune base models.
 
 * Add sampled data in `data/dataset_info.json`
 
@@ -120,7 +120,7 @@ torchrun --nnodes=1 --nproc_per_node=8 --node_rank=${RANK} --master_addr=${MASTE
 
 ## 💪 What's more?
 
-We will continue to update including:
+We will continue to update:
 
 - [ ] More automatic data selection strategies
 
