@@ -121,5 +121,4 @@ venv.bak/
 *.bin
 
 # User
-data
 cache
