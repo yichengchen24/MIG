@@ -11,6 +11,7 @@ MIG is an automatic data selection method for instruction tuning. It proposes an
 
 ## 🔥 News
 * 📄 [04/2025] MIG paper [MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space](https://arxiv.org/abs/2504.13835) is released!
+* 🤗 [04/2025] Annotated data pools and sampled datasets by different data selection methods are released at [HuggingFace](https://huggingface.co/collections/xsample/mig-datasets-6800b4d225243877293eff3b).
 
 ## Performance
 
