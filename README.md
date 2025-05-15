@@ -10,6 +10,7 @@ We will continue to update. Please stay tuned!
 MIG is an automatic data selection method for instruction tuning. It proposes an information-based dataset measurement that comprehensively evaluates data quality and diversity.
 
 ## 🔥 News
+* 🎉 [05/2025] MIG is accepted to ACL 2025 Findings!
 * 📄 [04/2025] MIG paper [MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space](https://arxiv.org/abs/2504.13835) is released!
 * 🤗 [04/2025] Annotated data pools and sampled datasets by different data selection methods are released at [HuggingFace](https://huggingface.co/collections/xsample/mig-datasets-6800b4d225243877293eff3b).
 
@@ -130,10 +131,10 @@ We will continue to update:
 If you find the content of this project helpful, please cite our paper as follows:
 
 ```
-@article{chen2025mig,
+@inproceedings{chen2025mig,
   title={MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space},
   author={Chen, Yicheng and Li, Yining and Hu, Kai and Ma, Zerun and Ye, Haochen and Chen, Kai},
-  journal={arXiv preprint arXiv:2504.13835},
+  booktitle={Findings of the Association for Computational Linguistics: ACL 2025},
   year={2025}
 }
 ```
