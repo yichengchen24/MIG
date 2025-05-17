@@ -74,7 +74,9 @@ mig sample <src> --out <save_path> --num-sample <num_sample> --valid-tag-path ./
 ### SFT Training
 We use [LLama-Factory](https://github.com/hiyouga/LLaMA-Factory) to fine-tune base models.
 
-* Add sampled data in `data/dataset_info.json`
+* Preparation
+
+Add sampled data in `data/dataset_info.json`.
 
 ```json
 "tulu3_pool_mig_50k": {
@@ -117,6 +119,18 @@ torchrun --nnodes=1 --nproc_per_node=8 --node_rank=${RANK} --master_addr=${MASTE
     --plot_loss \
     --bf16 \
     --save_only_model
+```
+
+### Evaluation
+We use [OpenCompass](https://github.com/open-compass/opencompass) to evaluate fine-tuned models.
+
+* Preparation
+
+Please install the environment accroding to the instructions from OpenCompass.
+
+* Evaluation
+```bash
+opencompass eval/eval_objective.py
 ```
 
 

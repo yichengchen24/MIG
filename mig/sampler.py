@@ -12,6 +12,8 @@ Tensor = torch.Tensor
 
 class SamplerType(Enum):
     MIG = "mig"
+    RANDOM = "random"
+    IFD = "ifd"
     
 
 class Sampler(metaclass=ABCMeta):
@@ -22,6 +24,55 @@ class Sampler(metaclass=ABCMeta):
         """Sample a subset of the pool with 'num_sample' samples."""
 
 
+class RandomSampler(Sampler):
+    
+    def sample(self, pool: Dataset[DataPoint], num_sample: int, batch_size: int = 0) -> Iterator[DataPoint]:
+        if num_sample >= len(pool):
+            raise ValueError("num_sample must be less than the size of the pool.")
+        import random
+        rng = random.Random(42)
+        indices = rng.sample(range(len(pool)), num_sample)
+        for i in indices:
+            yield pool[i]
+
+
+class IFDSampler(Sampler):
+    """
+    Sample data by IFD
+    """
+    
+    def __init__(
+        self,
+        upper_bound: float = 1.0,
+        lower_bound: float = 0.0,
+    ):
+        super().__init__()
+        self.upper_bound = upper_bound
+        self.lower_bound = lower_bound
+    
+    def filter(self, pool: Dataset[DataPoint]):
+        """Filter outilers"""
+        
+        filtered_pool = []
+        for dp in pool:
+            if dp.score <= self.upper_bound and dp.score >= self.lower_bound:
+                filtered_pool.append(dp)
+        
+        return filtered_pool
+        
+    def sample(self, pool: Dataset[DataPoint], num_sample: int, batch_size: int = 0) -> Iterator[DataPoint]:
+        
+        # filter
+        filtered_pool = self.filter(pool)
+        
+        # sort
+        sorted_pool = sorted(filtered_pool, key=lambda x: x.score, reverse=True)
+        
+        # sample
+        for i in range(num_sample):
+            yield sorted_pool[i]
+    
+    
 class MIGSampler(Sampler):
     """Maximum Information Gain Sampler.
     
@@ -152,4 +203,6 @@ def create_sampler(sampler_type: SamplerType, label_graph: Optional[LabelGraph],
         if label_graph is None:
             raise ValueError("label_graph must be provided for MIG sampler.")
         return MIGSampler(label_graph, phi_type=phi_type, phi_alpha=phi_alpha, phi_a=phi_a, phi_b=phi_b, prop_weight=prop_weight, norm=norm)
+    elif sampler_type == SamplerType.RANDOM:
+        return RandomSampler()
     
