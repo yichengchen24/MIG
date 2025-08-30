@@ -126,11 +126,17 @@ We use [OpenCompass](https://github.com/open-compass/opencompass) to evaluate fi
 
 * Preparation
 
-Please install the environment accroding to the instructions from OpenCompass.
+1. Please install the environment accroding to the instructions from OpenCompass.
+2. Please install [CompassJudger-1-32B-Instruct](https://huggingface.co/opencompass/CompassJudger-1-32B-Instruct) if you want to evaluate human-preference tasks. Serve CompassJudger using LMDeploy and update `openai_api_base` of `judge_models` in `eval_subjective.py`
+
+```bash
+HF_EVALUATE_OFFLINE=1 HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1 lmdeploy serve api_server opencompass/CompassJudger-1-32B-Instruct --tp 4 --chat-template qwen --log-level INFO
+```
 
 * Evaluation
 ```bash
-opencompass eval/eval_objective.py
+opencompass eval/eval_objective.py  # evaluate objective/knowledge-based tasks
+opencompass eval/eval_subjective.py  # evaluate subjective/human-preference tasks
 ```
 
 

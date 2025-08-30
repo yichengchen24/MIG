@@ -31,15 +31,6 @@ with read_base():
     # Summarizer
     from opencompass.configs.summarizers.groups.bbh import bbh_summary_groups
     from opencompass.configs.summarizers.groups.mmlu import mmlu_summary_groups
-    
-
-    # Model List
-    # from opencompass.configs.models.qwen.lmdeploy_qwen2_1_5b_instruct import models as lmdeploy_qwen2_1_5b_instruct_model
-    # from opencompass.configs.models.hf_internlm.lmdeploy_internlm2_5_7b_chat import models as hf_internlm2_5_7b_chat_model
-    # from opencompass.configs.models.openbmb.hf_minicpm_2b_sft_bf16 import models as hf_minicpm_2b_sft_bf16_model
-    # from opencompass.configs.models.yi.hf_yi_1_5_6b_chat import models as hf_yi_1_5_6b_chat_model
-    # from opencompass.configs.models.gemma.hf_gemma_2b_it import models as hf_gemma_2b_it_model
-    # from opencompass.configs.models.yi.hf_yi_1_5_34b_chat import models as hf_yi_1_5_34b_chat_model
 
 #######################################################################
 #                          PART 1  Datasets List                      #
@@ -87,7 +78,7 @@ summarizer = dict(
 
 models = []
 model_configs = [
-    ('Llama-3.1-8B-Instruct', '/cpfs01/user/chenyicheng/aliyun/ckpts/meta-llama/Llama-3.1-8B-Instruct', 1),
+    ('Llama-3.1-8B-Instruct', 'meta-llama/Llama-3.1-8B-Instruct', 1),
 ]
 
 max_seq_len = 16384
@@ -157,5 +148,4 @@ eval = dict(
 #######################################################################
 #                      PART 5  Utils Configuaration                   #
 #######################################################################
-base_exp_dir = 'outputs/corebench_v1_9/'
-work_dir = osp.join(base_exp_dir, 'chat_objective')
+work_dir = 'outputs/objective/'
